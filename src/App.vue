@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <link rel="prefetch stylesheet"
+        href="https://use.typekit.net/uso4aoz.css?family=Lato:300,400,500&display=swap"
+        crossorigin="anonymous"
+  />
+  <FenixMain/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FenixMain from './components/FenixMain.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FenixMain
   }
 }
 </script>
 
 <style>
+html {
+  background-color: var(--background-color);
+   --primary-color: #2E8BE8;
+  --background-color: #2a343a;
+  font-family: Lato, sans-serif;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+  background-color: var(--background-color);
+  color: var(--primary-color);
   margin-top: 60px;
+  font-size: 24px;
+
 }
+
+
 </style>

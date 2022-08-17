@@ -12,6 +12,8 @@
     "vue": "^3.2.13"
   },
   "devDependencies": {
+    "sass": "^1.54.4",
+    "sass-loader": "^13.0.2",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
