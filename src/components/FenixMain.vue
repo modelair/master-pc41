@@ -30,10 +30,9 @@
                           height="2.5em"></TelegramLogo>
             <WhatsAppLogo width="2.5em" height="2.5em" class="svg-button"
                           @click="clickWhatsApp"></WhatsAppLogo>
-            <vk-logo class="svg-button" width="2.5em" height="2.5em" @click="clickVk">
-
-            </vk-logo>
+            <vk-logo class="svg-button" width="2.5em" height="2.5em" @click="clickVk"></vk-logo>
           </div>
+          <h1 v-show="isTelVisible" class="full-tel">{{genTelFull()}}</h1>
         </div>
 
       </div>
@@ -53,12 +52,17 @@ import WhatsAppLogo from '@/components/WhatsApp-Logo.vue'
 import TelegramLogo from '@/components/TelegramLogo.vue'
 import FenixBird from '@/components/Fenix-Bird'
 import FenixQr from '@/components/Fenix-Qr'
+import { ref } from 'vue'
 
 const genTel = () => {
   return '+79246887970'
 }
+const genTelFull = () => {
+  return '+7 (924) 688-79-70'
+}
 const clickTelephone = () => {
   document.location.href = 'tel://' + genTel()
+  isTelVisible.value = true
 }
 const clickTelegram = () => {
   document.location.href = 'tg://resolve?domain=master_pc41'
@@ -69,6 +73,7 @@ const clickWhatsApp = () => {
 const clickVk = () => {
   document.location.href = document.location.href = 'https://vk.com/' + genTel()
 }
+const isTelVisible = ref(false)
 </script>
 <script>
 
@@ -86,10 +91,7 @@ export default {
 
 <style scoped lang="scss">
 
-a {
-  margin: 0;
-  padding: 0;
-}
+
 .logo {
   font-size: 6em;
 }
@@ -100,34 +102,19 @@ a {
   /*align-items: center;*/
   justify-content: center;
 }
-@media screen and (max-width: 1024px)  {
-  #app {
-    font-size: 14px;
-  }
-
-}
-
-@media screen and (max-width: 1024px)  {
-  .card {
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
 
 
-  .title {
-    font-size: 10px;
-  }
-  .buttons {
-    justify-content: center;
-    }
-  .description {
 
-    padding-left: 0;
-  }
+.title {
+  background: var(--primary-color);
+  justify-content: space-between;
+  color: var(--background-color);
+  border-radius: 1em;
+  padding: .2em .7em;
+  text-transform: uppercase;
 
+  font-size: 200%;
+  margin: 0;
 }
 .description {
   text-transform: uppercase;
@@ -165,29 +152,10 @@ a {
   align-items: flex-start;
   justify-content: flex-start;
 
-  &--title {
-    background: var(--primary-color);
-
-    justify-content: space-between;
-
-    color: var(--background-color);
-    border-radius: 1em;
-    padding: .2em .7em;
-    text-transform: uppercase;
-
-    font-size: 200%;
-    margin: 0;
-  }
-}
-
-
-h1 {
 
 }
 
-p {
-  font-size: 150%;
-}
+
 
 main {
   flex-direction: column;
@@ -199,5 +167,47 @@ main {
   justify-content: center;
 }
 
+@media screen and (max-width: 1024px)  {
+  #app {
+    font-size: 14px;
+  }
+
+  .card {
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .title {
+    font-size: 1.5em;
+  }
+  .buttons {
+    justify-content: center;
+  }
+  .description {
+
+    padding-left: 0;
+  }
+
+}
+@media screen and (max-width: 375px)  {
+  .logo {
+    font-size: 2em;
+  }
+  .title {
+    font-size: 1em;
+    border-radius: 0;
+  }
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .description {
+    font-size: .8em;
+  }
+}
 
 </style>
